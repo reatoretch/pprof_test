@@ -21,5 +21,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
     http.HandleFunc("/", handler)
-    log.Println(http.ListenAndServe("localhost:6060", nil))
+    go func() {
+        log.Println(http.ListenAndServe("localhost:6060", nil))
+    }()
 }
